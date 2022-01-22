@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+      {block name="title"}{/block}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 加载静态资源文件文件 -->
+      {load href="/static/bootstrap/css/bootstrap.min.css,/static/bootstrap/js/bootstrap.bundle.min.js" /}
+      {load href="/static/css/global.css"}
+
+      <!-- css -->
+      {block name="css"}{/block}
+  </head>
+<body>
+
+<!-- nav导航栏 -->
+{include file="layout/nav"}
+<div class="container">
+    {include file="layout/sidebar"}
+</div>
+<div class="container">
+
+<div class="row">
+
+    <!--主体 基础模板区块-->
+    {block name="body"}{/block}
+
+
+</div>
+
+</div>
+
+
+<!-- footer -->
+{include file="layout/footer"}
+
+<!-- js -->
+{block name="js"}{/block}
+
+</body>
+</html>

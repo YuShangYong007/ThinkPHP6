@@ -1,0 +1,72 @@
+<!-- 子模板通过（extend）继承父模板 -->
+{extend name="layout/main" /}
+
+{block name="title"}
+<title>首页</title>
+{/block}
+
+{block name="css"}
+    {load href="/static/css/index.css"}
+{/block}
+
+<!-- 子模板重载父模板中的区块 -->
+{block name="body"}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner"  >
+    <div class="carousel-item active">
+      <img src="/static/images/1.jpg" class="d-block w-100" alt="1">
+    </div>
+    <div class="carousel-item">
+      <img src="/static/images/2.jpg" class="d-block w-100" alt="2">
+    </div>
+    <div class="carousel-item">
+      <img src="/static/images/bg.jpeg" class="d-block w-100" alt="3">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+		{volist name="data" id="d"}
+
+		<h3>{$i} {$key} <input type="radio" name="status" {if condition="$d.id == 5"} checked {/if} value="0"> {$d.name} >>> {$d.pwd} >>>> {$d.create_date} </h3>
+
+		{/volist}
+
+			{$data[0]->name|md5}
+		{foreach $data as $v}
+		    <div>
+		        <span>ID：{$v['id']}</span>
+		        <span>姓名：{$v['name']}</span>
+		    </div>
+		{/foreach}
+	 
+ 
+	    {$data}
+{$data}
+{$data}
+{$data}
+{$data}
+{$data}
+{$data}
+<h3>发几点结束宽度思考</h3>
+
+<div>{:captcha_img()}</div>
+<div><img src="{:captcha_src()}" alt="captcha" /></div>
+
+
+
+{/block}
+
